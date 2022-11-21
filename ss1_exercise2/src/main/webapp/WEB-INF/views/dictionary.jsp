@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Translate</h1>
+<h1>Translate</h1>';kl
 <form method="post">
     <input type="text" name="word">
     <button type="submit">Translate</button>
