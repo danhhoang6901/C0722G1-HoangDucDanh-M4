@@ -27,4 +27,10 @@ public class CustomerService implements ICustomerService {
     public void save(Customer customer) {
         customerRepository.save(customer);
     }
+
+    @Override
+    public void delete(Integer id) {
+        customerRepository.delete(id);
+    }
+
 }

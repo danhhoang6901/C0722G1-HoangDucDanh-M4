@@ -31,4 +31,10 @@ public class CustomerRepository implements ICustomerRepository {
     public void save(Customer customer) {
         customers.add(customer);
     }
+
+    @Override
+    public void delete(Integer id) {
+        customers.remove(id - 1);
+    }
+
 }

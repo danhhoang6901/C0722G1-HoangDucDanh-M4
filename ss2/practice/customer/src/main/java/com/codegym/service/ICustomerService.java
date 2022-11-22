@@ -10,4 +10,6 @@ public interface ICustomerService {
     Customer findById(Integer id);
 
     void save(Customer customer);
+
+    void delete(Integer id);
 }

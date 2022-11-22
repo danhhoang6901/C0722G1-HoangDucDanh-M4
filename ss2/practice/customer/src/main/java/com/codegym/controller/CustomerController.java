@@ -44,7 +44,16 @@ public class CustomerController {
                                @RequestParam("address") String address,
                                RedirectAttributes redirectAttributes) {
         customerService.save(new Customer(id, name, email, address));
-        redirectAttributes.addFlashAttribute("msg", "Thành công");
+        redirectAttributes.addFlashAttribute("msg", "Xóa thành công");
+        return "redirect:/list";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCustomer(@PathVariable("id") Integer id, Model model, RedirectAttributes redirectAttributes) {
+        Customer customer = customerService.findById(id);
+        customerService.delete(id);
+        model.addAttribute("customer", customer);
+        redirectAttributes.addFlashAttribute("msg", "Xóa thành công");
         return "redirect:/list";
     }
 }
