@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="94de5697-332e-45e5-ae9d-fe6cbd4a9388" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/electronic_mailbox/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/repository/IConfiguringEmailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/repository/impl/ConfiguringEmailRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/service/IConfiguringEmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/service/impl/ConfiguringEmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/repository/impl/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/java/com/codegym/service/impl/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../ss4/exercise/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/build/classes/java/main/com/codegym/controller/MailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/build/classes/java/main/com/codegym/controller/MailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/build/classes/java/main/com/codegym/model/ConfiguringEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/build/classes/java/main/com/codegym/model/ConfiguringEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/build/libs/electronic_mailbox-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/build/libs/electronic_mailbox-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/controller/MailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/controller/MailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/model/ConfiguringEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/java/com/codegym/model/ConfiguringEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/electronic_mailbox/src/main/webapp/WEB-INF/views/update.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2HvuEeRrCmUiuQxDEjnEUtSy2vJ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/electronic_mailbox" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="94de5697-332e-45e5-ae9d-fe6cbd4a9388" name="Default Changelist" comment="" />
+      <created>1669177767472</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669177767472</updated>
+      <workItem from="1669177768909" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1669177779708">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1669177779708" />
+  </component>
+</project>

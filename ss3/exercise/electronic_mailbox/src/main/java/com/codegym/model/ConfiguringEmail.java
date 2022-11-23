@@ -1,7 +1,7 @@
 package com.codegym.model;
 
 public class ConfiguringEmail {
-//    private int id;
+    private int id;
     private String languages;
     private int pageSize;
     private String spamsFillter;
@@ -10,28 +10,22 @@ public class ConfiguringEmail {
     public ConfiguringEmail() {
     }
 
-    public ConfiguringEmail(String languages, int pageSize, String spamsFillter, String signature) {
+
+    public ConfiguringEmail(int id, String languages, int pageSize, String spamsFillter, String signature) {
+        this.id = id;
         this.languages = languages;
         this.pageSize = pageSize;
         this.spamsFillter = spamsFillter;
         this.signature = signature;
     }
 
-    //    public ConfiguringEmail(int id, String languages, int pageSize, String spamsFillter, String signature) {
-//        this.id = id;
-//        this.languages = languages;
-//        this.pageSize = pageSize;
-//        this.spamsFillter = spamsFillter;
-//        this.signature = signature;
-//    }
-//
-//    public int getId() {
-//        return id;
-//    }
-//
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getLanguages() {
         return languages;
