@@ -2,6 +2,7 @@ package com.codegym.repository.impl;
 
 import com.codegym.model.Product;
 import com.codegym.repository.IProductRepository;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -11,15 +12,22 @@ import java.util.List;
 public class ProductRepository implements IProductRepository {
     private static List<Product> products = new ArrayList<>();
 
-    static {
-        products.add(new Product(1, "Điện thoại", 10000000, "Đẹp", "Apple"));
-        products.add(new Product(2, "Điện thoại1", 20000000, "Đẹp hơn", "Apple"));
-        products.add(new Product(3, "Điện thoại2", 30000000, "Đẹp hơn nữa", "Apple"));
-    }
+
 
     @Override
     public List<Product> findAll() {
-        return products;
+        Session session = null;
+        List<Product> productList = null;
+        try{
+            session = ConnectionUtil.sessionFactory.openSession();
+            productList = session.createQuery("from Product").getResultList();
+
+        }finally {
+            if (session != null){
+                session.close();
+            }
+        }
+        return productList;
     }
 
     @Override
@@ -46,14 +54,14 @@ public class ProductRepository implements IProductRepository {
     @Override
     public List<Product> search(String name) {
         List<Product> products = new ArrayList<>();
-        for (Product product : products) {
+        List<Product> products1 = findAll();
+        for (Product product : products1) {
             if (product.getName().contains(name)) {
                 products.add(product);
             }
         }
         return products;
     }
-
 
     private int findIndexById(int id) {
         for (int i = 0; i < products.size(); i++) {
@@ -63,6 +71,4 @@ public class ProductRepository implements IProductRepository {
         }
         return -1;
     }
-
-
 }
