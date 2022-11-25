@@ -55,7 +55,7 @@ public class ProductController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Integer id, RedirectAttributes redirectAttributes) {
         productService.delete(id);
-        redirectAttributes.addFlashAttribute("msg", "Delete successfully");
+            redirectAttributes.addFlashAttribute("msg", "Delete successfully");
         return "redirect:/list";
     }
 

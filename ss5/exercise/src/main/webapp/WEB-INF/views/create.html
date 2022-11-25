@@ -21,15 +21,15 @@
     <h1>Create Product</h1>
     <a th:href="@{/list}" role="button" class="btn btn-primary">Back list</a>
     <form th:method="post" th:action="@{/create}" th:object="${product}">
-        <input th:type="hidden" th:field="*{id}">
-        <label>Name: </label>
-        <input th:field="*{name}"><br>
+        <input required th:type="hidden" th:field="*{id}">
+        <label>Name: </label>   
+        <input required th:field="*{name}"><br>
         <label>Price: </label>
-        <input th:type="number" th:field="*{price}"><br>
+        <input required th:type="number" th:field="*{price}"><br>
         <label>Describe: </label>
-        <input th:field="*{describe}"><br>
+        <input required th:field="*{describe}"><br>
         <label>Producer: </label>
-        <input th:field="*{producer}"><br>
+        <input required th:field="*{producer}"><br>
         <input role="button" class="btn btn-primary" th:type="submit" th:value="Create">
     </form>
 </div>
