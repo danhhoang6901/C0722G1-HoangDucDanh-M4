@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -31,7 +32,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String add(Product product, RedirectAttributes redirectAttributes) {
+    public String add(@ModelAttribute("product") Product product, RedirectAttributes redirectAttributes) {
         product.setId((int) (Math.random() * 10000));
         productService.add(product);
         redirectAttributes.addFlashAttribute("msg", "Successfully added new");
@@ -46,7 +47,7 @@ public class ProductController {
     }
 
     @PostMapping("/edit")
-    public String edit(Product product, RedirectAttributes redirectAttributes) {
+    public String edit(@ModelAttribute("product") Product product, RedirectAttributes redirectAttributes) {
         productService.edit(product);
         redirectAttributes.addFlashAttribute("msg", "Update successful");
         return "redirect:/list";
