@@ -51,9 +51,42 @@
         <td th:text="${bl.category.nameCategory}"></td>
         <td><a th:href="@{/edit?id=__${bl.id}__}" role="button" class="btn btn-primary">Edit</a></td>
         <td><a th:href="@{/delete?id=__${bl.id}__}" role="button" class="btn btn-primary">Delete</a></td>
-        <td><a th:href="@{/view?id=__${bl.id}__}" role="button" class="btn btn-primary">View</a></td>
+        <td>
+            <button type="button" th:attr="onclick=|infoDelete('${bl.id}','${bl.title}')|"
+                    class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Xóa
+            </button>
+        </td>
     </tr>
     </tbody>
 </table>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <form action="/delete" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa Thông Tin Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="number" id="deleteId" name="deleteId">
+                    <span style="color: red">Bạn có chắc muốn xóa ? </span>
+                    <span id="deleteName" style="color: red"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    function infoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
 </body>
 </html>

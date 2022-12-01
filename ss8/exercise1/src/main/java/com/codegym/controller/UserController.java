@@ -1,7 +1,9 @@
 package com.codegym.controller;
 
 import com.codegym.model.User;
+import com.codegym.model.UserDTO;
 import com.codegym.service.IUserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,17 +30,23 @@ public class UserController {
 
     @GetMapping("/create")
     public String formCreate(Model model) {
+        model.addAttribute("userDTO", new UserDTO());
         model.addAttribute("users", new User());
         return "create";
     }
 
     @PostMapping("/create")
-    public String create(@Validated @ModelAttribute("users") User user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String create(@Validated @ModelAttribute("userDTO") UserDTO userDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+        new UserDTO().validate(userDTO, bindingResult);
         if (bindingResult.hasErrors()) {
+
             return "create";
+        } else {
+            User user1 = new User();
+            BeanUtils.copyProperties(userDTO, user1);
+            userService.save(user1);
+            redirectAttributes.addFlashAttribute("msg", "Successfully added new");
+            return "redirect:/list";
         }
-        userService.save(user);
-        redirectAttributes.addFlashAttribute("msg", "Successfully added new");
-        return "redirect:/list";
     }
 }

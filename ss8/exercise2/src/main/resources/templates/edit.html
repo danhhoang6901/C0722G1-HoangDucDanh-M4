@@ -14,7 +14,7 @@
     <h1>Edit Blog</h1>
     <a role="button" class="btn btn-primary" th:href="@{/list}">Back list</a>
 </div>
-<form th:action="@{/edit}" th:method="post" th:object="${music}">
+<form action="/edit" th:method="post" th:object="${musicDTO}">
     <input th:type="hidden" th:field="*{id}">
     <div class="mb-3">
         <label th:for="name">Name: </label>

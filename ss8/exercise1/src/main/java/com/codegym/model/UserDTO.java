@@ -1,25 +1,35 @@
 package com.codegym.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+import javax.validation.constraints.*;
+
+public class UserDTO implements Validator {
     private int id;
+
+    @NotEmpty(message = "First Name không được để trống!")
+    @Size(min = 5, max = 45, message = "First Name phải có độ dài hơn 5 chữ và nhỏ hơn 45")
     private String firstName;
+
+    @NotEmpty(message = "Last Name không được để trống!")
+    @Size(min = 5, max = 45, message = "Last Name phải có độ dài hơn 5 chữ và nhỏ hơn 45")
     private String lastName;
+
+    @Pattern(regexp = "[0]\\d{9}", message = "Số điện thoại phải 10 số và không được nhập chữ")
     private String phoneNumber;
+
+    @Min(value = 18, message = "Con nít biến")
     private int age;
+
+
+    @Email(message = "Đúng định dạng: abcde@gmail.com")
     private String email;
 
-    public User() {
+    public UserDTO() {
     }
 
-    public User(int id, String firstName, String lastName, String phoneNumber, int age, String email) {
+    public UserDTO(int id, String firstName, String lastName, String phoneNumber, int age, String email) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -74,5 +84,15 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        UserDTO userDTO = (UserDTO) target;
     }
 }

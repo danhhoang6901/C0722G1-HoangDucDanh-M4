@@ -25,14 +25,21 @@
         <th scope="col">Edit</th>
     </tr>
     </thead>
-    <tbody>
-    <tr th:each="music, stt : ${music}">
-        <th th:text="${stt.count}" scope="row"></th>
-        <td th:text="${music.name}"></td>
-        <td th:text="${music.singer}"></td>
-        <td th:text="${music.category}"></td>
-        <td><a th:href="@{/edit?id=__${music.id}__}" role="button" class="btn btn-primary">Edit</a></td>    </tr>
+    <tbody>c
+    <tr th:each="musics, stt : ${music}">
+        <th th:text="${stt.count} + ${music.number} * ${music.size}" scope="row"></th>
+        <td th:text="${musics.name}"></td>
+        <td th:text="${musics.singer}"></td>
+        <td th:text="${musics.category}"></td>
+        <td><a th:href="@{/{id}/edit(id=${musics.id})}" role="button" class="btn btn-primary">Edit</a></td>
+    </tr>
     </tbody>
 </table>
+<div>
+    <a role="button" class="btn btn-primary" th:href="@{'/list'(page=${music.number - 1})}"
+       th:if="${music.hasPrevious()}">Previous</a>
+    <span th:text="${music.number + 1}"></span>/<span th:text="${music.totalPages}"></span>
+    <a role="button" class="btn btn-primary" th:href="@{'/list'(page=${music.number + 1})}" th:if="${music.hasNext()}">Next</a>
+</div>
 </body>
 </html>

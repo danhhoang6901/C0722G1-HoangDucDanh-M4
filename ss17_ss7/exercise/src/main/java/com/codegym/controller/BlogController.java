@@ -62,7 +62,7 @@ public class BlogController {
         return "redirect:/list";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String delete(@RequestParam("id") int id, RedirectAttributes redirectAttributes) {
         blogService.remove(id);
         redirectAttributes.addFlashAttribute("msg", "Delete successfully");
