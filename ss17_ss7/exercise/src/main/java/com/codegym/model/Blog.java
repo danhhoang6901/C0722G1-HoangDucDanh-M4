@@ -3,7 +3,6 @@ package com.codegym.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "blog")
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +12,7 @@ public class Blog {
     private String author;
     private String content;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
     public Category getCategory() {
