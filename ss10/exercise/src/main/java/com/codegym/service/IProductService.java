@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface IProductService {
     List<Product> findAll();
 
-    Optional<Product> findById(int id);
+    Optional<Product> findById(long id);
 }

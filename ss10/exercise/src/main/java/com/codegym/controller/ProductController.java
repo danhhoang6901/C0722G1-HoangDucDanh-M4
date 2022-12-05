@@ -48,7 +48,7 @@ public class ProductController {
     }
 
     @GetMapping("/detail/{id}")
-    public ModelAndView showDetail(@PathVariable int id, HttpServletResponse response) {
+    public ModelAndView showDetail(@PathVariable long id, HttpServletResponse response) {
         Cookie cookie = new Cookie("idProduct", String.valueOf(id));
         cookie.setMaxAge(30);
         cookie.setPath("/");
@@ -57,7 +57,7 @@ public class ProductController {
     }
 
     @GetMapping
-    public ModelAndView showListPage(Model model, @CookieValue(value = "idProduct", defaultValue = "-1") int idProduct) {
+    public ModelAndView showListPage(Model model, @CookieValue(value = "idProduct", defaultValue = "-1") Long idProduct) {
         if (idProduct == -1) {
             model.addAttribute("historyProduct", productService.findById(idProduct).get());
         }
