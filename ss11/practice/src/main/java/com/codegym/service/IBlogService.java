@@ -16,4 +16,6 @@ public interface IBlogService {
     Optional<Blog> findById(Integer id);
 
     List<Blog> findAll();
+
+    List<Blog> searchTitleOrAuthorOrCategoryName2(String search);
 }

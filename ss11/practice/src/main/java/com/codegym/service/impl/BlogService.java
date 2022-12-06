@@ -31,4 +31,9 @@ public class BlogService implements IBlogService {
     public List<Blog> findAll() {
         return blogRepository.findAll();
     }
+
+    @Override
+    public List<Blog> searchTitleOrAuthorOrCategoryName2(String search) {
+        return blogRepository.searchTitleOrAuthorOrCategoryName2(search, search, search);
+    }
 }

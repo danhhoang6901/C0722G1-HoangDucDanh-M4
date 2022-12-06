@@ -46,6 +46,13 @@ public class BlogController {
         return new ResponseEntity<>(blog, HttpStatus.OK);
 
     }
-
+    @GetMapping("/more")
+    public ResponseEntity<List<Blog>> getListBySearch2(@RequestParam(defaultValue = "") String search) {
+        List<Blog> blogList = blogService.searchTitleOrAuthorOrCategoryName2(search);
+        if (blogList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(blogList, HttpStatus.OK);
+    }
 
 }

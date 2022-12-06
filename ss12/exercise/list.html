@@ -69,6 +69,7 @@
     <tbody id="myBody">
     </tbody>
 </table>
+<button class="btn btn-outline-success" type="submit" id="more">More</button>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -136,11 +137,10 @@
     //     });
     //     event.preventDefault();
     // })
-
     $(document).ready(function () {
         function init() {
             $.ajax({
-                url: 'http://localhost:8080/blog',
+                url: 'http://localhost:8080/blog' ,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -164,16 +164,47 @@
             })
         }
 
-        init();
+        init()
+
     })
 
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {  
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#myBody tr").filter(function() {
+            $("#myBody tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });
+    });
+
+    $("#more").click(function () {
+
+        $.ajax({
+            url: "http://localhost:8080/blog/more",
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                let myTable = "";
+
+                for (let i = 0; i < data.length; i++) {
+                    myTable +=
+                        `
+                            <tr>
+                              <th scope="row " class="text-danger">${i + 1}</th>
+                              <td>${data[i].title}</td>
+                              <td>${data[i].author}</td>
+                              <td>${data[i].date}</td>
+                              <td>${data[i].category.name}</td>
+                            </tr>
+                            `
+                }
+                debugger
+                $("#myBody").html(myTable);
+
+            }
+        });
+        //chặn sự kiện mặc định của thẻ
+        event.preventDefault();
     });
 </script>
 </body>
