@@ -5,6 +5,9 @@ import com.codegym.model.Blog;
 import com.codegym.service.IBlogService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/blog")
+@CrossOrigin("*")
 public class BlogController {
     @Autowired
     private IBlogService blogService;
@@ -29,7 +33,6 @@ public class BlogController {
         for (Blog x : blogDtos) {
             BlogDto blogDto = new BlogDto();
             BeanUtils.copyProperties(x, blogDto);
-            blogDto.setCategoryId(x.getCategory().getId());
             blogDtoList.add(blogDto);
         }
         return new ResponseEntity<>(blogDtoList, HttpStatus.OK);

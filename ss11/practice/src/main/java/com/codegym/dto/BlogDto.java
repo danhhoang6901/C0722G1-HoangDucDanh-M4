@@ -1,5 +1,7 @@
 package com.codegym.dto;
 
+import com.codegym.model.Category;
+
 import java.time.LocalDate;
 
 public class BlogDto {
@@ -8,19 +10,34 @@ public class BlogDto {
     private String author;
     private LocalDate datePublished;
     private String content;
-    private Integer categoryId;
+    private Category category;
 
     public BlogDto() {
     }
 
-    public BlogDto(Integer id, String name, String author, LocalDate datePublished,
-                   String content, Integer categoryId) {
+    public BlogDto(Integer id, String name, String author, LocalDate datePublished, String content) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.datePublished = datePublished;
         this.content = content;
-        this.categoryId = categoryId;
+    }
+
+    public BlogDto(Integer id, String name, String author, LocalDate datePublished, String content, Category category) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.datePublished = datePublished;
+        this.content = content;
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public Integer getId() {
@@ -63,12 +80,5 @@ public class BlogDto {
         this.content = content;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
 
 }

@@ -15,7 +15,7 @@ public class Blog {
     private LocalDate datePublished;
     private String content;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     private Category category;
 
