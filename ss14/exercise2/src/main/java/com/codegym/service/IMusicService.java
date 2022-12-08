@@ -11,4 +11,6 @@ public interface IMusicService {
 
 //    Optional<Music> findById(int id);
     Music findById(int id);
+
+    void remove(int id);
 }

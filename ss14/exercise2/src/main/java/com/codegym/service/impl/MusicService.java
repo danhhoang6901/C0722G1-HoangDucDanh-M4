@@ -28,6 +28,11 @@ public class MusicService implements IMusicService {
         return musicRepository.findById(id).get();
     }
 
+    @Override
+    public void remove(int id) {
+        musicRepository.deleteById(id);
+    }
+
 //    @Override
 //    public Optional<Music> findById(int id) {
 //        return musicRepository.findById(id);

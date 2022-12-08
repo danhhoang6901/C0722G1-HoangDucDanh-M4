@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27f4d328-1dbf-44e9-a819-c62b51022315" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+    <list default="true" id="61475598-39de-442c-ae4c-8239b1083afa" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/dto/customer/CustomerDto.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/model/contract/AttachFacility.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/model/contract/Contract.java" afterDir="false" />
@@ -19,19 +18,8 @@
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/model/user/Role.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/model/user/User.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/model/user/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/repository/ICustomerRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/repository/ICustomerTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/service/ICustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/service/impl/CustomerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/service/impl/CustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../case_study/src/main/java/com/codegym/service/impl/ICustomerTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ss12/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss11/practice/src/main/java/com/codegym/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss11/practice/src/main/java/com/codegym/controller/BlogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ss12/exercise/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss12/exercise/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exercise/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercise/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss14/exercise/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss14/exercise/build.gradle" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../ss14/exercise/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
@@ -68,7 +56,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="2IISUWGmaaFUoJc45Mn1Ln0wVUl" />
+  <component name="ProjectId" id="2Icr4I1oT1OzqclPrGGWJgXxwcb" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -79,30 +67,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/exercise" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ss11/practice" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="27f4d328-1dbf-44e9-a819-c62b51022315" name="Default Changelist" comment="" />
-      <created>1669867619885</created>
+      <changelist id="61475598-39de-442c-ae4c-8239b1083afa" name="Default Changelist" comment="" />
+      <created>1670491519501</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669867619885</updated>
-      <workItem from="1669867621088" duration="14000" />
-      <workItem from="1670492064879" duration="8000" />
+      <updated>1670491519501</updated>
+      <workItem from="1670491521001" duration="10000" />
     </task>
     <servers />
   </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1670492071585">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1670491529848">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1670492071585" />
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1670491529848" />
   </component>
 </project>

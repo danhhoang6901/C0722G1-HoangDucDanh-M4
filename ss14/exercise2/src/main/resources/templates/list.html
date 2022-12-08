@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 <head>
     <meta charset="UTF-8">
     <title>List Music</title>
@@ -12,7 +14,7 @@
 <body>
 <div align="center">
     <h1>List Music</h1>
-    <a role="button" class="btn btn-primary" href="/create">Create</a>
+    <a sec:authorize="hasRole('ADMIN')" role="button" class="btn btn-primary" href="/create">Create</a>
 </div>
 <p style="font-weight: bold;color: red" th:text="${msg}"></p>
 <table class="table">
@@ -22,16 +24,20 @@
         <th scope="col">Name</th>
         <th scope="col">Singer</th>
         <th scope="col">Category</th>
-        <th scope="col">Edit</th>
+        <th scope="col" sec:authorize="hasRole('ADMIN')">Edit</th>
+        <th scope="col" sec:authorize="hasRole('ADMIN')">Delete</th>
     </tr>
     </thead>
-    <tbody>c
+    <tbody>
     <tr th:each="musics, stt : ${music}">
         <th th:text="${stt.count} + ${music.number} * ${music.size}" scope="row"></th>
         <td th:text="${musics.name}"></td>
         <td th:text="${musics.singer}"></td>
         <td th:text="${musics.category}"></td>
-        <td><a th:href="@{/{id}/edit(id=${musics.id})}" role="button" class="btn btn-primary">Edit</a></td>
+        <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/{id}/edit(id=${musics.id})}" role="button"
+                                                class="btn btn-primary">Edit</a></td>
+        <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/{id}/delete(id=${musics.id})}" role="button"
+                                                class="btn btn-primary">Delete</a></td>
     </tr>
     </tbody>
 </table>
@@ -42,4 +48,10 @@
     <a role="button" class="btn btn-primary" th:href="@{'/list'(page=${music.number + 1})}" th:if="${music.hasNext()}">Next</a>
 </div>
 </body>
+<script th:inline="javascript">
+    function infoDelete(id, name) {
+        document.getElementById("deleteId").value = id;
+        document.getElementById("deleteName").innerText = name;
+    }
+</script>
 </html>

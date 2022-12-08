@@ -20,7 +20,7 @@ public class MusicController {
     @Autowired
     private IMusicService musicService;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public String showList(@PageableDefault(page = 0, size = 2) Pageable pageable, Model model) {
         Page<Music> music = musicService.findAll(pageable);
         model.addAttribute("music", music);
@@ -70,5 +70,12 @@ public class MusicController {
             redirectAttributes.addFlashAttribute("msg", "Update successful");
             return "redirect:/list";
         }
+    }
+
+    @PostMapping("{id}/delete")
+    public String delete(@PathVariable("id") int id, RedirectAttributes redirectAttributes) {
+        musicService.remove(id);
+        redirectAttributes.addFlashAttribute("msg", "Delete successfully");
+        return "redirect:/";
     }
 }

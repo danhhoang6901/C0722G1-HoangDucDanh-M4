@@ -69,7 +69,8 @@
     <tbody id="myBody">
     </tbody>
 </table>
-<button class="btn btn-outline-success" type="submit" id="more">More</button>
+<button class="btn btn-outline-success" type="submit" id="loadMore">Load More</button>
+<button class="btn btn-outline-success" type="submit" id="showLess">Show Less</button>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -177,35 +178,30 @@
         });
     });
 
-    $("#more").click(function () {
-
-        $.ajax({
-            url: "http://localhost:8080/blog/more",
-            type: 'GET',
-            dataType: 'json',
-            success: function (data) {
-                let myTable = "";
-
-                for (let i = 0; i < data.length; i++) {
-                    myTable +=
-                        `
-                            <tr>
-                              <th scope="row " class="text-danger">${i + 1}</th>
-                              <td>${data[i].title}</td>
-                              <td>${data[i].author}</td>
-                              <td>${data[i].date}</td>
-                              <td>${data[i].category.name}</td>
-                            </tr>
-                            `
-                }
-                debugger
-                $("#myBody").html(myTable);
-
-            }
-        });
-        //chặn sự kiện mặc định của thẻ
-        event.preventDefault();
-    });
+    // $(document).ready(function () {
+    //     $('#myBody').load('externalList.html li:lt(3)');
+    //     $('#myBody li:lt(3)').show();
+    //     $('#loadMore').click(function () {
+    //         $('#myBody li:lt(10)').show();
+    //     });
+    //     $('#showLess').click(function () {
+    //         $('#myBody li').not(':lt(3)').hide();
+    //     });
+    // });
+    //
+    // $(document).ready(function () {
+    //     size_li = $("#myBody li").size();
+    //     x=3;
+    //     $('#myList li:lt('+x+')').show();
+    //     $('#loadMore').click(function () {
+    //         x= (x+5 <= size_li) ? x+5 : size_li;
+    //         $('#myList li:lt('+x+')').show();
+    //     });
+    //     $('#showLess').click(function () {
+    //         x=(x-5<0) ? 3 : x-5;
+    //         $('#myBody li').not(':lt('+x+')').hide();
+    //     });
+    // });
 </script>
 </body>
 </html>

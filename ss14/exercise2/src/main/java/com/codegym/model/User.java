@@ -23,6 +23,14 @@ public class User {
     public User() {
     }
 
+    public User(Long id, String username, String password, boolean isEnabled, List<Role> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.isEnabled = isEnabled;
+        this.roles = roles;
+    }
+
     public Long getId() {
         return id;
     }
