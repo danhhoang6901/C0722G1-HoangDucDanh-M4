@@ -22,4 +22,19 @@ public class CustomerService implements ICustomerService {
     public void save(Customer customer) {
         customerRepository.save(customer);
     }
+
+    @Override
+    public Customer findById(int id) {
+        return customerRepository.findById(id).get();
+    }
+
+    @Override
+    public void delete(int id) {
+        customerRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Customer> findByBlogNameEmailAndCustomerTypeContaining(Pageable pageable, String name, String email, String customerType) {
+        return customerRepository.findByBlogNameEmailAndCustomerTypeContaining(pageable, name, email, customerType);
+    }
 }

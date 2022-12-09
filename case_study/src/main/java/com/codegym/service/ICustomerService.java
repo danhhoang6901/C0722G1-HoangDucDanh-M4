@@ -8,4 +8,10 @@ public interface ICustomerService {
     Page<Customer> findAll(Pageable pageable);
 
     void save(Customer customer);
+
+    Customer findById(int id);
+
+    void delete(int id);
+
+    Page<Customer> findByBlogNameEmailAndCustomerTypeContaining(Pageable pageable, String name, String email, String customerType);
 }

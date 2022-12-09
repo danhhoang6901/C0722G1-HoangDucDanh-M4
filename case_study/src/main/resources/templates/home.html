@@ -45,11 +45,14 @@
                             <li><a class="dropdown-item" th:href="@{/customer/list}">List Customer</a></li>
                         </ul>
                     </li>
-<!--                    <li class="nav-item" style="margin-left: 10px">-->
-<!--                        <a class="nav-link" th:href="@{/customer/list}">Customer</a>-->
-<!--                    </li>-->
-                    <li class="nav-item" style="margin-left: 10px">
-                        <a class="nav-link" href="/facility">Service</a>
+                    <li class="nav-item dropdown">
+                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Facility
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                            <li><a class="dropdown-item" th:href="@{/facility/list}">List Facility</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item" style="margin-left: 10px">
                         <a class="nav-link" href="#">Contract</a>
