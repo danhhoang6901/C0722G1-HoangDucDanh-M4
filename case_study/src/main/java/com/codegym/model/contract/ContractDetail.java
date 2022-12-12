@@ -9,7 +9,7 @@ public class ContractDetail {
     private int id;
     private int quantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contract_id", referencedColumnName = "id")
     private Contract contract;
 

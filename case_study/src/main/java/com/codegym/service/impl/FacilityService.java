@@ -17,4 +17,19 @@ public class FacilityService implements IFacilityService {
     public Page<Facility> findAll(Pageable pageable) {
         return facilityRepository.findAll(pageable);
     }
+
+    @Override
+    public Page<Facility> findByNameAndFacilityType(Pageable pageable, String name, String facilityType) {
+        return facilityRepository.findByNameAndFacilityType(pageable, name, facilityType);
+    }
+
+    @Override
+    public void delete(int id) {
+        facilityRepository.deleteById(id);
+    }
+
+    @Override
+    public void save(Facility facility) {
+        facilityRepository.save(facility);  
+    }
 }

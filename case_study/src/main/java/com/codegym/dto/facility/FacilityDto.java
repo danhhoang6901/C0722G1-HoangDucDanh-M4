@@ -1,14 +1,9 @@
-package com.codegym.model.facility;
+package com.codegym.dto.facility;
 
-import com.codegym.model.contract.Contract;
+import com.codegym.model.facility.FacilityType;
+import com.codegym.model.facility.RentType;
 
-import javax.persistence.*;
-import java.util.Set;
-
-@Entity
-public class Facility {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FacilityDto {
     private int id;
     private String name;
     private int area;
@@ -19,19 +14,27 @@ public class Facility {
     private double poolArea;
     private int numberOfFloors;
     private String facilityFree;
-
-    @ManyToOne
-    @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
-
-    @ManyToOne
-    @JoinColumn(name = "rent_type_id", referencedColumnName = "id")
     private RentType rentType;
 
-    @OneToMany(mappedBy = "facility", cascade = CascadeType.ALL)
-    private Set<Contract> contracts;
+    public FacilityDto() {
+    }
 
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType, Set<Contract> contracts) {
+    public FacilityDto(int id, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
+        this.id = id;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.standardRoom = standardRoom;
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+        this.poolArea = poolArea;
+        this.numberOfFloors = numberOfFloors;
+        this.facilityFree = facilityFree;
+        this.facilityType = facilityType;
+        this.rentType = rentType;
+    }
+
+    public FacilityDto(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -44,47 +47,6 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.facilityType = facilityType;
         this.rentType = rentType;
-        this.contracts = contracts;
-    }
-
-    public Facility() {
-    }
-
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree) {
-        this.id = id;
-        this.name = name;
-        this.area = area;
-        this.cost = cost;
-        this.maxPeople = maxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.facilityFree = facilityFree;
-    }
-
-    public FacilityType getFacilityType() {
-        return facilityType;
-    }
-
-    public void setFacilityType(FacilityType facilityType) {
-        this.facilityType = facilityType;
-    }
-
-    public RentType getRentType() {
-        return rentType;
-    }
-
-    public void setRentType(RentType rentType) {
-        this.rentType = rentType;
-    }
-
-    public Set<Contract> getContracts() {
-        return contracts;
-    }
-
-    public void setContracts(Set<Contract> contracts) {
-        this.contracts = contracts;
     }
 
     public int getId() {
@@ -165,5 +127,21 @@ public class Facility {
 
     public void setFacilityFree(String facilityFree) {
         this.facilityFree = facilityFree;
+    }
+
+    public FacilityType getFacilityType() {
+        return facilityType;
+    }
+
+    public void setFacilityType(FacilityType facilityType) {
+        this.facilityType = facilityType;
+    }
+
+    public RentType getRentType() {
+        return rentType;
+    }
+
+    public void setRentType(RentType rentType) {
+        this.rentType = rentType;
     }
 }

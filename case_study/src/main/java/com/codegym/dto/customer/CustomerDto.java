@@ -1,16 +1,39 @@
 package com.codegym.dto.customer;
 
 import com.codegym.model.customer.CustomerType;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-public class CustomerDto {
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+
+public class CustomerDto implements Validator {
     private int id;
+
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^\\p{Lu}\\p{Ll}+(\\s\\p{Lu}\\p{Ll}+)*$", message = "Không được chứa số. Các ký tự đầu tiên mỗi từ phải viết hoa")
     private String name;
+
+    @NotEmpty(message = "Không được để trống")
     private String dateOfBirth;
+
     private int gender;
+
+    @NotEmpty(message = "Không được để trống")
     private String idCard;
+
+    @NotEmpty(message = "Không được để trống")
+    @Pattern(regexp = "^090[0-9]{7}$")
     private String phoneNumber;
+
+    @Email(message = "Đúng định dạng: abcde@gmail.com")
     private String email;
+
+    @NotEmpty(message = "Không được để trống")
     private String address;
+
     private CustomerType customerType;
 
     public CustomerDto() {
@@ -99,4 +122,15 @@ public class CustomerDto {
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        CustomerDto customerDto = (CustomerDto) target;
+    }
+
 }

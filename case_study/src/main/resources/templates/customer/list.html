@@ -61,7 +61,7 @@
                     </li>
                 </ul>
                 <form th:action="@{/customer/list}" method="get">
-                    <input th:type="text" name="name" placeholder="Search Name">
+                    <input th:value="${name}" th:type="text" name="name" placeholder="Search Name">
                     <input th:type="text" name="email" placeholder="Search Email">
                     <select th:name="customerType">
                         <option value="" selected>
@@ -113,46 +113,71 @@
                 <td th:text="${customer.address}"></td>
                 <td th:text="${customer.customerType.name}"></td>
                 <td><a th:href="@{/customer/edit?id=__${customer.id}__}" role="button" class="btn btn-primary">Edit</a>
-                <td><a th:href="@{/customer/delete?id=__${customer.id}__}" role="button"
-                       class="btn btn-primary">Delete</a>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                    </button>
                 </td>
+            </tr>
             </tbody>
         </table>
-        <nav aria-label="..." class="justify-content-center d-flex">
-            <ul class="pagination">
-                <li class="page-item">
-                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number - 1})}"
-                       th:if="${customers.hasPrevious()}">&laquo;</a>
-                </li>
-                <li class="page-item disabled" th:unless="${customers.hasPrevious()}">
-                    <a class="page-link">&laquo;</a>
-                </li>
+<!--        <nav aria-label="..." class="justify-content-center d-flex">-->
+<!--            <ul class="pagination">-->
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number - 1},name=${name})}"-->
+<!--                       th:if="${customers.hasPrevious()}">&laquo;</a>-->
+<!--                </li>-->
+<!--                <li class="page-item disabled" th:unless="${customers.hasPrevious()}">-->
+<!--                    <a class="page-link">&laquo;</a>-->
+<!--                </li>-->
 
-                <li class="page-item">
-                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number - 1})}"
-                       th:if="${customers.hasPrevious()}" th:text="${customers.number}"></a>
-                </li>
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number - 1})}"-->
+<!--                       th:if="${customers.hasPrevious()}" th:text="${customers.number}"></a>-->
+<!--                </li>-->
 
-                <li class="page-item active">
-                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number})}"
-                       th:text="${customers.number + 1}">
-                        <span class="sr-only">(trang hiện tại)</span></a>
-                </li>
+<!--                <li class="page-item active">-->
+<!--                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number})}"-->
+<!--                       th:text="${customers.number + 1}">-->
+<!--                        <span class="sr-only">(trang hiện tại)</span></a>-->
+<!--                </li>-->
 
-                <li class="page-item">
-                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number+1})}"
-                       th:text="${customers.number+2}" th:if="${customers.hasNext()}"></a>
-                </li>
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number+1})}"-->
+<!--                       th:text="${customers.number+2}" th:if="${customers.hasNext()}"></a>-->
+<!--                </li>-->
 
-                <li class="page-item">
-                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number+1})}"
-                       th:if="${customers.hasNext()}">&raquo;</a>
-                </li>
-                <li class="page-item disabled" th:unless="${customers.hasNext()}">
-                    <a class="page-link">&raquo;</a>
-                </li>
-            </ul>
-        </nav>
+<!--                <li class="page-item">-->
+<!--                    <a class="page-link" th:href="@{'/customer/list'(page=${customers.number+1}, name=${name} )}"-->
+<!--                       th:if="${customers.hasNext()}">&raquo;</a>-->
+<!--                </li>-->
+<!--                <li class="page-item disabled" th:unless="${customers.hasNext()}">-->
+<!--                    <a class="page-link">&raquo;</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want to delete this <p style="font-weight: bold; color: red; display: inline"
+                                              th:text="${customer.name}"></p> customer ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel
+                </button>
+                <a th:href="@{/customer/delete?id=__${customer.id}__}" role="button"
+                   class="btn btn-primary">Delete</a>
+            </div>
+        </div>
     </div>
 </div>
 <footer class="text-center text-lg-start bg-light text-muted">

@@ -35,11 +35,11 @@
                             Employee
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" th:href="@{/employee/list}">List Employee</a></li>
+                            <li><a class="dropdown-item">List Employee</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Customer
                         </a>
@@ -48,7 +48,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Facility
                         </a>
@@ -69,50 +69,57 @@
             </div>
         </div>
     </nav>
-    <div style="height: 70%" >
+    <div style="height: 70%">
         <div align="center">
             <h1>Create Customer</h1>
             <a role="button" class="btn btn-primary" th:href="@{/customer/list}">Back list</a>
         </div>
-        <form th:method="post" th:action="@{/customer/create}" th:object="${customerDto}" >
+        <form th:method="post" th:action="@{/customer/create}" th:object="${customerDto}">
             <input th:type="hidden" th:field="*{id}">
             <div class="mb-3">
                 <label>Name:</label>
                 <input class="form-control" th:type="text" th:field="*{name}">
+                <p th:errors="*{name}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Date Of Birth:</label>
                 <input class="form-control" th:type="date" th:field="*{dateOfBirth}">
+                <p th:errors="*{dateOfBirth}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Gender:</label>
-                <input th:type="radio" th:field="*{gender}" th:value="1" }>Male
+                <input th:type="radio" th:field="*{gender}" th:value="1"  }>Male
                 <input th:type="radio" th:value="2" th:field="*{gender}" }>Female
+                <input th:type="radio" th:value="3" th:field="*{gender}" }>LGBT
             </div>
             <div class="mb-3">
                 <label>Id Card:</label>
-                <input th:type="text" th:field="*{idCard}" class="form-control" >
+                <input th:type="text" th:field="*{idCard}" class="form-control">
+                <p th:errors="*{idCard}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Phone number:</label>
                 <input class="form-control" th:type="text" th:field="*{phoneNumber}">
+                <p th:errors="*{phoneNumber}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Email:</label>
                 <input th:type="text" class="form-control" th:field="*{email}">
+                <p th:errors="*{email}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Address:</label>
                 <input th:type="text" class="form-control" th:field="*{address}">
+                <p th:errors="*{address}" class="text-danger"></p>
             </div>
             <div class="mb-3">
                 <label>Customer Type:</label>
-                    <select th:field="*{customerType}">
-                            <option th:each="customerType : ${customerType}" th:value="${customerType.id}"
+                <select th:field="*{customerType}">
+                    <option th:each="customerType : ${customerType}" th:value="${customerType.id}"
                             th:text="${customerType.name}"></option>
-                    </select>
+                </select>
             </div>
-                <input role="button" class="btn btn-primary" th:type="submit" th:value="Create">
+            <input role="button" class="btn btn-primary" th:type="submit" th:value="Create">
         </form>
     </div>
 </div>
