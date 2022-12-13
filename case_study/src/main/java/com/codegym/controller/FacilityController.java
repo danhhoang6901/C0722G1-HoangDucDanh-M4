@@ -49,7 +49,6 @@ public class FacilityController {
     }
 
 
-
     @PostMapping("/create")
     public String createFacility(@ModelAttribute("facilityDto") FacilityDto facilityDto, RedirectAttributes redirectAttributes) {
         Facility facility = new Facility();
@@ -78,4 +77,25 @@ public class FacilityController {
         return "redirect:/facility/list";
     }
 
+    @GetMapping("/edit")
+    public String formEditFacility(@RequestParam("id") int id, Model model) {
+        List<FacilityType> facilityTypes = facilityTypeService.findAll();
+        List<RentType> rentTypes = rentTypeService.findAll();
+        model.addAttribute("facilityType", facilityTypes);
+        model.addAttribute("rentType", rentTypes);
+        Facility facility = facilityService.findById(id);
+        FacilityDto facilityDto = new FacilityDto();
+        BeanUtils.copyProperties(facility, facilityDto);
+        model.addAttribute("facilityDto", facilityDto);
+        return "facility/edit";
+    }
+
+    @PostMapping("/edit")
+    public String editFacility(@ModelAttribute("facilityDto") FacilityDto facilityDto, RedirectAttributes redirectAttributes) {
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facilityDto, facility);
+        facilityService.save(facility);
+        redirectAttributes.addFlashAttribute("msg", "Update successful");
+        return "redirect:/facility/list";
+    }
 }

@@ -45,10 +45,12 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String createCustomer(@Validated @ModelAttribute("customerDto") CustomerDto customerDto, BindingResult bindingResult, RedirectAttributes redirectAttributes,Model model) {
         new CustomerDto().validate(customerDto, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "customer/list";
+            List<CustomerType> customerTypes = customerTypeService.findAll();
+            model.addAttribute("customerType", customerTypes);
+            return "customer/create";
         } else {
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);

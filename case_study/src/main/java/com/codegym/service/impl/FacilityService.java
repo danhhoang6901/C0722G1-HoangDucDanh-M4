@@ -32,4 +32,9 @@ public class FacilityService implements IFacilityService {
     public void save(Facility facility) {
         facilityRepository.save(facility);  
     }
+
+    @Override
+    public Facility findById(int id) {
+        return facilityRepository.findById(id).get();
+    }
 }

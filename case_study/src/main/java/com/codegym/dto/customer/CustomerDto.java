@@ -5,7 +5,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
@@ -25,9 +24,10 @@ public class CustomerDto implements Validator {
     private String idCard;
 
     @NotEmpty(message = "Không được để trống")
-    @Pattern(regexp = "^090[0-9]{7}$")
+    @Pattern(regexp = "^[0][9][0][0-9]{7}$", message = "Đúng định dạng: 090xxxxxxx")
     private String phoneNumber;
 
+    @NotEmpty(message = "Không được để trống")
     @Email(message = "Đúng định dạng: abcde@gmail.com")
     private String email;
 

@@ -39,7 +39,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Customer
                         </a>
@@ -48,7 +48,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
+                        <a style="font-weight: bold" class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Facility
                         </a>
@@ -57,7 +57,8 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             Contract
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
@@ -76,55 +77,57 @@
     </nav>
     <div style="height: 70%">
         <div align="center">
-            <h1>Create Customer</h1>
-            <a role="button" class="btn btn-primary" th:href="@{/customer/list}">Back list</a>
+            <h1>Edit Facility</h1>
+            <a role="button" class="btn btn-primary" th:href="@{/facility/list}">Back list</a>
         </div>
-        <form th:method="post" th:action="@{/customer/create}" th:object="${customerDto}">
+        <form th:method="post" th:action="@{/facility/edit}" th:object="${facilityDto}">
             <input th:type="hidden" th:field="*{id}">
+            <input th:type="hidden" th:field="*{facilityType}" th:value="${facilityDto.facilityType.id}">
             <div class="mb-3">
-                <label>Name:</label>
-                <input class="form-control" th:type="text" th:field="*{name}">
-                <p th:errors="*{name}" class="text-danger"></p>
+                <label th:for="name">Name:</label>
+                <input class="form-control" th:type="text"
+                       th:field="*{name}">
             </div>
             <div class="mb-3">
-                <label>Date Of Birth:</label>
-                <input class="form-control" th:type="date" th:field="*{dateOfBirth}">
-                <p th:errors="*{dateOfBirth}" class="text-danger"></p>
+                <label th:for="area">Area:</label>
+                <input class="form-control" th:type="number" th:field="*{area}">
             </div>
             <div class="mb-3">
-                <label>Gender:</label>
-                <input th:type="radio" th:value="0" th:field="*{gender}" }>Female
-                <input th:type="radio" th:field="*{gender}" th:value="1" }>Male
-                <input th:type="radio" th:value="2" th:field="*{gender}" }>LGBT
+                <label th:for="cost">Cost:</label>
+                <input th:type="number" th:field="*{cost}" class="form-control" }>
             </div>
             <div class="mb-3">
-                <label>Id Card:</label>
-                <input th:type="text" th:field="*{idCard}" class="form-control">
-                <p th:errors="*{idCard}" class="text-danger"></p>
+                <label th:for="maxPeople">Max People:</label>
+                <input th:type="number" th:field="*{maxPeople}" class="form-control">
             </div>
             <div class="mb-3">
-                <label>Phone number:</label>
-                <input class="form-control" th:type="text" th:field="*{phoneNumber}">
-                <p th:errors="*{phoneNumber}" class="text-danger"></p>
-            </div>
-            <div class="mb-3">
-                <label>Email:</label>
-                <input th:type="text" class="form-control" th:field="*{email}">
-                <p th:errors="*{email}" class="text-danger"></p>
-            </div>
-            <div class="mb-3">
-                <label>Address:</label>
-                <input th:type="text" class="form-control" th:field="*{address}">
-                <p th:errors="*{address}" class="text-danger"></p>
-            </div>
-            <div class="mb-3">
-                <label>Customer Type:</label>
-                <select th:field="*{customerType}">
-                    <option th:each="customerType : ${customerType}" th:value="${customerType.id}"
-                            th:text="${customerType.name}"></option>
+                <label th:for="rentType">Rent Type:</label>
+                <select th:field="${facilityDto.rentType}">
+                    <option th:each="rt : ${rentType}" th:value="${rt.id}"
+                            th:text="${rt.name}"></option>
                 </select>
             </div>
-            <input role="button" class="btn btn-primary" th:type="submit" th:value="Create">
+            <div class="mb-3" th:if="${facilityDto.facilityType.id == 1||facilityDto.facilityType.id == 2}">
+                <label th:for="standardRoom">Standard Room:</label>
+                <input th:type="text" class="form-control" th:field="*{standardRoom}">
+            </div>
+            <div class="mb-3" th:if="${facilityDto.facilityType.id == 1||facilityDto.facilityType.id == 2}">
+                <label th:for="descriptionOtherConvenience">Description Other Convenience:</label>
+                <input th:type="text" class="form-control" th:field="*{descriptionOtherConvenience}">
+            </div>
+            <div class="mb-3" th:if="${facilityDto.facilityType.id == 1}">
+                <label th:for="poolArea">Pool Area: </label>
+                <input th:type="number" class="form-control" th:field="*{poolArea}">
+            </div>
+            <div class="mb-3" th:if="${facilityDto.facilityType.id == 1||facilityDto.facilityType.id == 2}">
+                <label th:for="numberOfFloors">Number Of Floors: </label>
+                <input class="form-control" th:type="number" th:field="*{numberOfFloors}">
+            </div>
+            <div class="mb-3" th:if="${facilityDto.facilityType.id == 3}">
+                <label th:for="facilityFree">Facility Free: </label>
+                <input class="form-control" th:type="text" th:field="*{facilityFree}">
+            </div>
+            <button class="btn btn-primary" th:type="submit">Edit</button>
         </form>
     </div>
 </div>

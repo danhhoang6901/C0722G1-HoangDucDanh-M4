@@ -20,20 +20,6 @@ public class FacilityDto {
     public FacilityDto() {
     }
 
-    public FacilityDto(int id, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
-        this.id = id;
-        this.area = area;
-        this.cost = cost;
-        this.maxPeople = maxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.facilityFree = facilityFree;
-        this.facilityType = facilityType;
-        this.rentType = rentType;
-    }
-
     public FacilityDto(int id, String name, int area, double cost, int maxPeople, String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, String facilityFree, FacilityType facilityType, RentType rentType) {
         this.id = id;
         this.name = name;
