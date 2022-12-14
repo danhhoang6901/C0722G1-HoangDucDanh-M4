@@ -57,17 +57,19 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button"
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
+                           role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
                             Contract
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                            <li><a class="dropdown-item">List Contract</a></li>
+                            <li><a th:href="@{/contract/list}" class="dropdown-item">List Contract</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form th:action="@{/facility/list}" method="get">
-                    <input th:type="text" name="name" placeholder="Search Name">
+                <form th:action="@{/facility/list}" class="d-flex">
+                    <input th:type="text" name="name" class="form-control me-2" type="search" placeholder="Search"
+                           aria-label="Search Name">
                     <select th:name="facilityType">
                         <option value="" selected>
                             Choose Facility Type
@@ -77,7 +79,7 @@
                                 th:value="${item.name}" th:text="${item.name}">
                         </option>
                     </select>
-                    <input th:type="submit" name="action" value="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </form>
             </div>
         </div>

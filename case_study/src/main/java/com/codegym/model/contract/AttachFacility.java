@@ -13,7 +13,7 @@ public class AttachFacility {
     private String unit;
     private String status;
 
-    @OneToMany(mappedBy = "attachFacility")
+    @OneToMany(mappedBy = "attachFacility",cascade = CascadeType.ALL)
     private Set<ContractDetail> contractDetails;
 
     public AttachFacility(int id, String name, double cost, String unit, String status, Set<ContractDetail> contractDetails) {
