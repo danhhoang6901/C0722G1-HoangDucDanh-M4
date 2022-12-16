@@ -29,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
+                    <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Employee
@@ -56,7 +56,7 @@
                             <li><a class="dropdown-item" th:href="@{/facility/list}">List Facility</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li sec:authorize="hasRole('ADMIN')" class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
                            role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">
@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                 </ul>
-                <form th:action="@{/facility/list}" class="d-flex">
+                <form  th:action="@{/facility/list}" class="d-flex">
                     <input th:type="text" name="name" class="form-control me-2" type="search" placeholder="Search"
                            aria-label="Search Name">
                     <select th:name="facilityType">
@@ -87,7 +87,7 @@
     <div style=" height: 60%">
         <div align="center">
             <h1>List Facility</h1>
-            <a th:href="@{/facility/create}" role="button" class="btn btn-primary">Create Facility</a>
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/facility/create}" role="button" class="btn btn-primary">Create Facility</a>
             <p style="font-weight: bold;color: red" th:text="${msg}"></p>
         </div>
         <table class="table table-striped table-bordered" style="width: 100%;">
@@ -105,8 +105,8 @@
                 <th scope="col">Facility Free</th>
                 <th scope="col">Facility Type</th>
                 <th scope="col">Rent Type</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                <th sec:authorize="hasRole('ADMIN')" scope="col">Edit</th>
+                <th sec:authorize="hasRole('ADMIN')" scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -123,8 +123,8 @@
                 <td th:text="${facility.facilityFree}"></td>
                 <td th:text="${facility.facilityType.name}"></td>
                 <td th:text="${facility.rentType.name}"></td>
-                <td><a th:href="@{/facility/edit?id=__${facility.id}__}" role="button" class="btn btn-primary">Edit</a>
-                <td>
+                <td sec:authorize="hasRole('ADMIN')"><a th:href="@{/facility/edit?id=__${facility.id}__}" role="button" class="btn btn-primary">Edit</a>
+                <td sec:authorize="hasRole('ADMIN')">
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Delete
                     </button>

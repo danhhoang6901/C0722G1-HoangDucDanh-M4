@@ -29,7 +29,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Employee
                         </a>
@@ -45,7 +45,7 @@
                             <li><a class="dropdown-item" th:href="@{/customer/list}">List Customer</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2"
                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Facility
@@ -54,7 +54,7 @@
                             <li><a class="dropdown-item" th:href="@{/facility/list}">List Facility</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" sec:authorize="hasRole('ADMIN')">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4"
                            role="button"
                            data-bs-toggle="dropdown" aria-expanded="false">

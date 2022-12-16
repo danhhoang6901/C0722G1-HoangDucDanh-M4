@@ -15,10 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -50,8 +47,8 @@ public class ContractController {
     }
 
     @GetMapping("/create")
-    public String formCreateContract(@PageableDefault(value = 3) Pageable pageable, Model model) {
-        model.addAttribute("contract", contractService.findAll(pageable));
+    public String formCreateContract(Model model) {
+        model.addAttribute("contract", new Contract());
         model.addAttribute("attachtFacility", contractService.findAttachFacility());
         model.addAttribute("contractDetail", contractDetailService.findAll());
         model.addAttribute("facility", facilityService.findAll());
